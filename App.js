@@ -22,13 +22,7 @@ const App = () => {
     getPushToken();
   }, []);
 
-  const handleFavorite = async (song) => {
-    if (expoPushToken) {
-      await sendPushNotification(expoPushToken, song);
-    } else {
-      console.error('Expo push token is not available.');
-    }
-  };
+
 
   return (
     <FavoritesProvider>

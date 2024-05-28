@@ -1,8 +1,11 @@
 /**
- * notification.js
  * 
  * Handles the push notification registration and sending.
  */
+
+import * as Notifications from 'expo-notifications';
+import { Platform } from 'react-native';
+import Constants from 'expo-constants';
 
 /**
  * Registers the device for push notifications and returns the Expo push token.
@@ -41,8 +44,12 @@ export const registerForPushNotificationsAsync = async () => {
   try {
     // Get the push token
     token = (await Notifications.getExpoPushTokenAsync({
-      projectId: Constants.manifest.extra.eas.projectId,
+      projectId: Constants.expoConfig.extra.eas.projectId,
     })).data;
+
+    if (!token) {
+      throw new Error('Failed to get push token');
+    }
 
     console.log('Expo Push Token:', token);
   } catch (error) {
