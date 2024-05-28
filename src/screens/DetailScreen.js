@@ -1,3 +1,8 @@
+/**
+ * DetailScreen.js
+ * 
+ * Screen for displaying detailed information about a song.
+ */
 import React, { useContext } from 'react';
 import { View, Text, Image, StyleSheet, Button, ScrollView } from 'react-native';
 import { FavoritesContext } from '../context/FavoriteContext';

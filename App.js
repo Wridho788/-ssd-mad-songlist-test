@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import SearchScreen from './src/screens/SearchScreen';
@@ -11,9 +11,24 @@ import { registerForPushNotificationsAsync } from './src/services/notification';
 const Stack = createStackNavigator();
 
 const App = () => {
-  React.useEffect(() => {
-    registerForPushNotificationsAsync();
+  const [expoPushToken, setExpoPushToken] = useState('');
+
+  useEffect(() => {
+    const getPushToken = async () => {
+      const token = await registerForPushNotificationsAsync();
+      setExpoPushToken(token);
+    };
+
+    getPushToken();
   }, []);
+
+  const handleFavorite = async (song) => {
+    if (expoPushToken) {
+      await sendPushNotification(expoPushToken, song);
+    } else {
+      console.error('Expo push token is not available.');
+    }
+  };
 
   return (
     <FavoritesProvider>

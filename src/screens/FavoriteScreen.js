@@ -1,4 +1,8 @@
-// src/screens/FavoriteScreen.js (Updated)
+/**
+ * FavoritesScreen.js
+ * 
+ * Screen for displaying the list of favorite songs.
+ */
 import React, { useContext } from 'react';
 import { View, FlatList, Text, TouchableOpacity, Button, StyleSheet } from 'react-native';
 import { FavoritesContext } from '../context/FavoriteContext';

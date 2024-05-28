@@ -1,3 +1,9 @@
+/**
+ * FavoritesContext.js
+ * 
+ * Context to manage the favorite songs list. Provides methods to add and remove favorites,
+ * and persists the favorite list using AsyncStorage.
+ */
 import React, { createContext, useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { registerForPushNotificationsAsync, sendPushNotification } from '../services/notification';
@@ -43,7 +49,11 @@ export const FavoritesProvider = ({ children }) => {
         newFavorites = prevFavorites.filter(fav => fav.trackId !== song.trackId);
       } else {
         newFavorites = [...prevFavorites, song];
-        sendPushNotification(expoPushToken, song);
+        if (expoPushToken) {
+          sendPushNotification(expoPushToken, song);
+        } else {
+          console.error('Expo push token is not available.');
+        }
       }
       return newFavorites;
     });

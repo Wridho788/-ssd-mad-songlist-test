@@ -1,3 +1,8 @@
+/**
+ * SearchScreen.js
+ * 
+ * Screen for searching songs. Allows users to search by song name or artist name.
+ */
 import React, { useContext, useState } from 'react';
 import { View, Text, TextInput, Button, FlatList, TouchableOpacity, Image, StyleSheet } from 'react-native';
 import { FavoritesContext } from '../context/FavoriteContext';
