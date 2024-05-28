@@ -1,5 +1,4 @@
 /**
- * SearchScreen.js
  * 
  * Screen for searching songs. Allows users to search by song name or artist name.
  */

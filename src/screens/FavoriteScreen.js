@@ -1,5 +1,4 @@
 /**
- * FavoritesScreen.js
  * 
  * Screen for displaying the list of favorite songs.
  */

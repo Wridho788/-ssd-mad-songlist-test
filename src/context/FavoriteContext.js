@@ -5,17 +5,17 @@
  */
 import React, { createContext, useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { registerForPushNotificationsAsync, sendPushNotification } from '../services/notification';
+// import { registerForPushNotificationsAsync, sendPushNotification } from '../services/notification';
 
 export const FavoritesContext = createContext();
 
 export const FavoritesProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
-  const [expoPushToken, setExpoPushToken] = useState('');
+  // const [expoPushToken, setExpoPushToken] = useState('');
 
   useEffect(() => {
     loadFavorites();
-    registerForPushNotificationsAsync().then(token => setExpoPushToken(token));
+    // registerForPushNotificationsAsync().then(token => setExpoPushToken(token));
   }, []);
 
   useEffect(() => {
@@ -48,11 +48,11 @@ export const FavoritesProvider = ({ children }) => {
         newFavorites = prevFavorites.filter(fav => fav.trackId !== song.trackId);
       } else {
         newFavorites = [...prevFavorites, song];
-        if (expoPushToken) {
-          sendPushNotification(expoPushToken, song);
-        } else {
-          console.error('Expo push token is not available.');
-        }
+        // if (expoPushToken) {
+        //   sendPushNotification(expoPushToken, song);
+        // } else {
+        //   console.error('Expo push token is not available.');
+        // }
       }
       return newFavorites;
     });

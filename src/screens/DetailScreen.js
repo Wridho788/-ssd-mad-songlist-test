@@ -1,5 +1,4 @@
 /**
- * DetailScreen.js
  * 
  * Screen for displaying detailed information about a song.
  */
