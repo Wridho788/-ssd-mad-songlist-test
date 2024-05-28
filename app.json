@@ -23,12 +23,11 @@
     },
     "extra": {
       "eas": {
-        "projectId": "abc222c9-cd36-42ac-b1a6-1e9695ea3d31"
+        "projectId": "1d5802a4-d9c2-4ac5-8030-b15a67ab7be4"
       }
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    },
-    "owner": "wridho"
+    }
   }
 }
